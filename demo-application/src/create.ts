@@ -21,6 +21,19 @@ JSON.parse(fs.readFileSync(connectionProfilePath, 'utf8')); // eslintdisable-li
  const contract = network.getContract('demo-contract');
  // Submit the specified transaction.
 
+await contract.submitTransaction('createMyAsset',
+    "023",
+    "MC",
+    "S23232J",
+    "23/06/2021",
+    "2888Z",
+    "NGHPOLY",
+    "Yishun",
+    "23/06/2021",
+    "25/06/2021",
+    "Original"
+ );
+
  await contract.submitTransaction('grantAuth',   
  "024",
  "Authorisation",
