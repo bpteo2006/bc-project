@@ -146,6 +146,10 @@ export class MyAssetContract extends Contract {
         if (!exist2) {
             throw new Error(`The authorisation code ${AuthCode} does not exist`);
         }
+        const forAssetId: string = (await this.readMyAuth(ctx, AuthCode)).ForAssetId;
+        if (AssetId !== forAssetId) {
+               throw new Error(`Sorry user ${UserId} is not authorise to this information`);
+        }
         const forUserId: string = (await this.readMyAuth(ctx, AuthCode)).ForUserId;
         if (UserId !== forUserId) {
                throw new Error(`Sorry user ${UserId} is not authorise to this information`);
